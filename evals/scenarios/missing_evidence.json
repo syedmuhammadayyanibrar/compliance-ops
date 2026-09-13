@@ -1,0 +1,22 @@
+{
+  "scenario_id": "SCEN-002",
+  "name": "missing_evidence",
+  "description": "System where cybersecurity penetration test evidence is missing; gap analyzer must mark requirement UNKNOWN or FAIL without hallucinating evidence",
+  "system_id": "fraud-detection-ai",
+  "user_goal": "Evaluate cybersecurity compliance for fraud detection AI model",
+  "expected_classification": {
+    "system_type": "predictive_ai",
+    "risk_category": "high"
+  },
+  "expected_tools": ["github.search", "github.get_file"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-004",
+      "expected_status": "UNKNOWN",
+      "expected_missing_controls": ["audit_trail_persistence"]
+    }
+  ],
+  "requires_approval": false,
+  "expected_remediation_action": null,
+  "expected_recovery_behavior": "safe_fallback_to_unknown_without_hallucination"
+}

@@ -1,0 +1,22 @@
+{
+  "scenario_id": "SCEN-004",
+  "name": "conflicting_documents",
+  "description": "Conflict between code repository claim (100% automated decision) and governance charter policy (mandatory human in the loop); agent flags conflict and cites both",
+  "system_id": "credit-underwriting-ai",
+  "user_goal": "Audit loan underwriting AI for Article 14 human oversight compliance",
+  "expected_classification": {
+    "system_type": "decision_support",
+    "risk_category": "high"
+  },
+  "expected_tools": ["github.search", "github.get_file", "drive.search", "drive.get_document"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-006",
+      "expected_status": "PARTIAL",
+      "expected_missing_controls": ["override_capability"]
+    }
+  ],
+  "requires_approval": true,
+  "expected_remediation_action": "linear.create_issue",
+  "expected_recovery_behavior": "conflict_detection_and_reconciliation_citation"
+}

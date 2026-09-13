@@ -1,0 +1,22 @@
+{
+  "scenario_id": "SCEN-003",
+  "name": "wrong_classification",
+  "description": "System initial classification claims Low Risk for biometric HR tool, but agent re-evaluates risk tier to High Risk based on Article 6 Annex III and expands scope",
+  "system_id": "hr-resume-screener",
+  "user_goal": "Initial screening check for internal recruitment automated resume analyzer",
+  "expected_classification": {
+    "system_type": "decision_support",
+    "risk_category": "high"
+  },
+  "expected_tools": ["github.search", "github.get_file"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-002",
+      "expected_status": "PARTIAL",
+      "expected_missing_controls": ["bias_examination"]
+    }
+  ],
+  "requires_approval": true,
+  "expected_remediation_action": "linear.create_issue",
+  "expected_recovery_behavior": "risk_tier_escalation_and_scope_expansion"
+}

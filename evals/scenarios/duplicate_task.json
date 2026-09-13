@@ -1,0 +1,22 @@
+{
+  "scenario_id": "SCEN-006",
+  "name": "duplicate_task",
+  "description": "Remediation agent checks Linear for pre-existing tickets before proposing new task, preventing duplicate issue creation",
+  "system_id": "customer-support-ai",
+  "user_goal": "Re-run audit after initial finding where Linear ticket was already created",
+  "existing_external_task": {
+    "system": "linear",
+    "ticket_id": "LIN-4821",
+    "title": "Establish monitoring ownership and alert thresholds for CS-AI"
+  },
+  "expected_tools": ["github.search", "linear.search_issues"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-007",
+      "expected_status": "PARTIAL"
+    }
+  ],
+  "requires_approval": false,
+  "expected_remediation_action": "linear.link_existing_issue",
+  "expected_recovery_behavior": "prevent_duplicate_and_link_existing"
+}

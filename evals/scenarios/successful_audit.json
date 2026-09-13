@@ -1,0 +1,30 @@
+{
+  "scenario_id": "SCEN-001",
+  "name": "successful_audit",
+  "description": "Standard audit of customer-support-ai system with partial gap in monitoring triggering remediation proposal and approval cycle",
+  "system_id": "customer-support-ai",
+  "user_goal": "Assess whether this AI customer-support system is ready for deployment under EU AI Act compliance",
+  "expected_classification": {
+    "system_type": "generative_ai",
+    "risk_category": "high"
+  },
+  "expected_tools": ["github.search", "github.get_file", "drive.search", "drive.get_document", "linear.create_issue"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-007",
+      "expected_status": "PARTIAL",
+      "expected_missing_controls": ["monitoring_ownership", "alert_thresholds", "escalation_process"]
+    },
+    {
+      "requirement_id": "REQ-EU-AI-006",
+      "expected_status": "PASS"
+    },
+    {
+      "requirement_id": "REQ-EU-AI-001",
+      "expected_status": "PASS"
+    }
+  ],
+  "requires_approval": true,
+  "expected_remediation_action": "linear.create_issue",
+  "expected_recovery_behavior": null
+}

@@ -1,0 +1,22 @@
+{
+  "scenario_id": "SCEN-005",
+  "name": "github_failure",
+  "description": "External GitHub integration returns 503 or network timeout; agent records tool failure explicitly in agent_events and falls back to secondary evidence without crashing",
+  "system_id": "customer-support-ai",
+  "user_goal": "Evaluate documentation completeness during GitHub service degradation",
+  "simulated_error": {
+    "tool": "github.search",
+    "status_code": 503,
+    "error_message": "GitHub API service unavailable"
+  },
+  "expected_tools": ["github.search", "drive.search", "drive.get_document"],
+  "expected_findings": [
+    {
+      "requirement_id": "REQ-EU-AI-003",
+      "expected_status": "UNKNOWN"
+    }
+  ],
+  "requires_approval": false,
+  "expected_remediation_action": null,
+  "expected_recovery_behavior": "safe_tool_failure_logging_and_graceful_degradation"
+}
