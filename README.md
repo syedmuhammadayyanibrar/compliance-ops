@@ -5,8 +5,7 @@
 
 ---
 ### VIDEO LINK:
-https://youtu.be/VmXFGFAjlxE
-link 2 : https://drive.google.com/file/d/1IPzQod2imhhe5O6YyPaX5InYZCMSuzUk/view?usp=drive_link
+[https://youtu.be/VmXFGFAjlxE](https://youtu.be/08hyo36OhGU)
 # problem & solution
 As organizations increasingly deploy AI systems, compliance teams struggle to continuously verify whether those systems follow internal policies and regulatory requirements. Evidence is scattered across code repositories, documents, logs, and other business tools, making audits manual, time-consuming, and difficult to trace.
 
