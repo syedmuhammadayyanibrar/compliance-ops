@@ -57,6 +57,15 @@ ComplianceOps uses a unified, stateful **LangGraph** orchestrator with specializ
 
 ---
 
+# The Apps:
+| App              | Purpose in ComplianceOps                                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **GitHub**       | Provides access to AI system source code, repositories, configurations, and development evidence for compliance analysis.                  |
+| **Google Drive** | Provides compliance policies, AI documentation, risk assessments, and other organizational evidence used during audits.                    |
+| **Slack**        | Enables Human-in-the-Loop (HITL) workflows by notifying compliance officers about critical findings and requesting approvals or decisions. |
+| **Linear**       | Used to create and track remediation tasks when compliance issues are identified.                                                          |
+
+
 ## 3. The 8 Evaluation Metrics
 
 Calculated directly from the evaluation suite (`evals/evaluator.py`):
