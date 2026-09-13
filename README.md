@@ -4,6 +4,10 @@
 > Autonomous EU AI Act & enterprise governance investigation across GitHub repositories, Google Drive policies, Slack HITL approvals, and Linear ticketing.
 
 ---
+# problem & solution
+As organizations increasingly deploy AI systems, compliance teams struggle to continuously verify whether those systems follow internal policies and regulatory requirements. Evidence is scattered across code repositories, documents, logs, and other business tools, making audits manual, time-consuming, and difficult to trace.
+
+ComplianceOps solves this by using an agentic AI system to automatically collect evidence from connected applications, analyze AI systems against compliance requirements, identify and prioritize risks, involve humans when decisions require approval, trigger remediation tasks, and maintain a complete audit trail.
 
 ## 1. System Architecture
 
