@@ -32,12 +32,14 @@ export function ComplianceScore({
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   const getScoreColor = (val: number) => {
+    if (val === 0) return "text-tx-muted stroke-slate-200";
     if (val >= 80) return "text-status-success stroke-status-success";
     if (val >= 60) return "text-status-warning stroke-status-warning";
     return "text-status-danger stroke-status-danger";
   };
 
   const getBadgeColor = (val: number) => {
+    if (val === 0) return "bg-surface-subtle text-tx-muted border-surface-border";
     if (val >= 80) return "bg-status-success-bg text-status-success border-[#C6F0DD]";
     if (val >= 60) return "bg-status-warning-bg text-status-warning border-[#FDE68A]";
     return "bg-status-danger-bg text-status-danger border-[#FECDCA]";
@@ -49,18 +51,19 @@ export function ComplianceScore({
       <div className="flex items-center justify-between border-b border-surface-border/60 pb-3 mb-4">
         <div>
           <h3 className="text-sm font-semibold text-tx-primary">
-            EU AI Act Readiness
+            EU AI Act Statutory Readiness
           </h3>
           <p className="text-xs text-tx-secondary mt-0.5">
-            Annex III High-Risk Compliance Assessment
+            Annex III Conformity Assessment Score
           </p>
         </div>
+
         <span
-          className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${getBadgeColor(
+          className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${getBadgeColor(
             score
           )}`}
         >
-          {score >= 80 ? "Substantially Compliant" : score >= 60 ? "Remediation Required" : "Non-Compliant"}
+          {score === 0 ? "Awaiting Audit Run" : score >= 80 ? "Substantially Compliant" : score >= 60 ? "Remediation Required" : "Non-Compliant"}
         </span>
       </div>
 
@@ -108,14 +111,16 @@ export function ComplianceScore({
             </div>
             {(() => {
               const category =
-                riskScore <= 3.0
+                riskScore === 0
+                  ? { label: "Not Evaluated", color: "text-tx-muted" }
+                  : riskScore <= 3.0
                   ? { label: "Low", color: "text-status-success" }
                   : riskScore <= 6.9
                   ? { label: "Moderate", color: "text-[#B45309]" }
                   : { label: "High", color: "text-status-danger" };
               return (
                 <div className={`text-lg font-bold ${category.color}`}>
-                  {riskScore}/10
+                  {riskScore === 0 ? "—" : `${riskScore}/10`}
                   <span className="text-xs font-normal text-tx-muted ml-1">
                     ({category.label})
                   </span>
@@ -129,9 +134,9 @@ export function ComplianceScore({
               Requirements Met
             </div>
             <div className="text-lg font-bold text-tx-primary">
-              {passedRequirements} / {totalRequirements}
-              <span className="text-xs font-normal text-status-success ml-1.5 font-medium">
-                ({Math.round((passedRequirements / totalRequirements) * 100)}%)
+              {score === 0 ? "0 / 8" : `${passedRequirements} / ${totalRequirements}`}
+              <span className="text-xs font-normal text-tx-muted ml-1.5 font-medium">
+                ({score === 0 ? "0%" : `${Math.round((passedRequirements / totalRequirements) * 100)}%`})
               </span>
             </div>
           </div>

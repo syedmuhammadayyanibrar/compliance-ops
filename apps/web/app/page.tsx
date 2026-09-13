@@ -81,7 +81,7 @@ export default function DashboardPage() {
           completedAudits.reduce((acc, a) => acc + (a.readiness_score || 0), 0) /
             completedAudits.length
         )
-      : 88;
+      : 0;
 
   const averageRisk =
     completedAudits.length > 0
@@ -89,7 +89,7 @@ export default function DashboardPage() {
           (completedAudits.reduce((acc, a) => acc + (a.risk_score || 0), 0) /
             completedAudits.length) * 10
         ) / 10
-      : 2.5;
+      : 0.0;
 
   const formatDate = (dateStr: string | null) => {
     if (!dateStr) return "In Progress";
