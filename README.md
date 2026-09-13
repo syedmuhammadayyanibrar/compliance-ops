@@ -4,6 +4,8 @@
 > Autonomous EU AI Act & enterprise governance investigation across GitHub repositories, Google Drive policies, Slack HITL approvals, and Linear ticketing.
 
 ---
+### VIDEO LINK:
+https://youtu.be/VmXFGFAjlxE
 # problem & solution
 As organizations increasingly deploy AI systems, compliance teams struggle to continuously verify whether those systems follow internal policies and regulatory requirements. Evidence is scattered across code repositories, documents, logs, and other business tools, making audits manual, time-consuming, and difficult to trace.
 
